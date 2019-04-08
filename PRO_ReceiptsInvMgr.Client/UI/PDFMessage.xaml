@@ -1,0 +1,27 @@
+﻿<local:BaseWindow  x:Class="PRO_ReceiptsInvMgr.Client.UI.PDFMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gifLib="clr-namespace:PRO_ReceiptsInvMgr.Core.Helper;assembly=PRO_ReceiptsInvMgr.Core"
+        xmlns:local="clr-namespace:PRO_ReceiptsInvMgr.Client.Resources.xskin"
+                  Icon="/PRO_ReceiptsInvMgr.Client;component/Resources/image/icon/1.ico"
+                  Title="提示"
+                  Width="180"
+                  Height="180"
+                  IsDisplayMin="False"
+                  IsDisplayMax="False"
+                  ResizeMode="NoResize"
+                  AllowsTransparency="True"
+                  Topmost="False"
+                  ShowInTaskbar="False"
+                  WindowStyle="None"
+                  WindowStartupLocation="CenterOwner"  IsDisplayQA="False" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Width="100" Height="100">
+            <gifLib:GifImage   Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/large-circle-preloader.gif"  x:Name="gifTxANormal"/>
+        </Grid>
+    </Grid>
+</local:BaseWindow>

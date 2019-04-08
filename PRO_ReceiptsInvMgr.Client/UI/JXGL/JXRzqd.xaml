@@ -1,0 +1,166 @@
+﻿<Page x:Class="PRO_ReceiptsInvMgr.Client.UI.JXGL.JXRzqd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PRO_ReceiptsInvMgr.Client.Resources.xskin" 
+        mc:Ignorable="d"
+         Name="RZQDPage"
+       xmlns:gifLib="clr-namespace:PRO_ReceiptsInvMgr.Core.Helper;assembly=PRO_ReceiptsInvMgr.Core"
+        xmlns:xly="clr-namespace:Util.Controls;assembly=Util.Controls"
+        xmlns:my="clr-namespace:PRO_ReceiptsInvMgr.Client.UserControls"
+       xmlns:customdatepicker="clr-namespace:PRO_ReceiptsInvMgr.Client.Resources.customdatepicker"
+        Title=""  Height="580" Width="1080" Loaded="RZQDPage_Loaded">
+    <Grid Margin="20,0,20,0">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ScrollBar}"></Style>
+                <Style x:Key="SubmitBtn" TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="#fff"></Setter>
+                    <Setter Property="FontSize" Value="14"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Name="btnBorder"
+                            Margin="0,0,0,0"
+                            Background="#E6B966" CornerRadius="6,6,6,6">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                        <Setter TargetName="btnBorder"
+                                    Property="Background"
+                                    Value="#EFC476" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground" Value="#6A6F78"></Setter>
+                    <Setter Property="FontFamily" Value="Microsoft YaHei"></Setter>
+                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                </Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                    <Setter Property="Margin" Value="3,0,0,0"></Setter>
+                    <Setter Property="Width" Value="210"></Setter>
+                    <Setter Property="Background" Value="#fff"></Setter>
+                </Style>
+
+                <ControlTemplate x:Key="FilletTextBox" TargetType="{x:Type TextBox}">
+                    <Border x:Name="border"
+                         BorderBrush="#e5e5e5"
+                        BorderThickness="1" 
+                        CornerRadius="5,5,5,5" 
+                        RenderTransformOrigin="0.5,0.5">
+                        <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="#eee"></Border>
+        <Grid Grid.Row="0"   Margin="0,10,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Width="700" Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="税款所属期："></TextBlock>
+                <DatePicker Margin="2,0"   TabIndex="5" SelectedDate="{Binding QueryModel.Skssq}"  xly:ControlAttachProperty.Watermark="税款所属期"  Name="DateSkssq"  Background="#FFF" Foreground="#000"    Style="{StaticResource DefaultDatePicker}" Width="125" Height="30"
+                    customdatepicker:DatePickerDateFormat.DateFormat="yyyy-MM" 
+                    customdatepicker:DatePickerCalendar.IsYear="False" 
+                    customdatepicker:DatePickerCalendar.IsMonthYear="True" SelectedDateChanged="DateSkssq_SelectedDateChanged"/>
+                <TextBlock Margin="20,0,0,0" Text="总金额："></TextBlock>
+                <Label VerticalAlignment="Center" Foreground="{StaticResource HighLightColor}"  Content="{Binding TotalAmount}"></Label>
+                <TextBlock  Text="元"></TextBlock>
+
+                <TextBlock Margin="10,0,0,0" Text="总税额："></TextBlock>
+                <Label VerticalAlignment="Center" Foreground="{StaticResource HighLightColor}" Content="{Binding TotalSE}"></Label>
+                <TextBlock  Text="元"></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button   x:Name="btnQuery" Style="{StaticResource JXCXButton}" Content="查询" Width="110" Height="32" Click="btnQuery_Click" VerticalAlignment="Top"></Button>
+                <Button   x:Name="btnExport" Margin="5,0,2,0" Style="{StaticResource ExportStyle}"  Width="110"  Height="32" Click="btnExport_Click"></Button>
+                <Button   x:Name="btnPrint" Margin="5,0,2,0" Style="{StaticResource PrintStyle}" Content="打印通知单" Width="110"  Height="32" Click="btnPrint_Click"></Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="10,10,10,5">
+            <DataGrid  MaxHeight="463"  Margin="0" Name="grdList"  VerticalScrollBarVisibility="Auto"  AutoGenerateColumns="False" CanUserAddRows="False"   
+                                      HeadersVisibility="Column" CanUserDeleteRows="False"
+                                      HorizontalContentAlignment="Center"  ItemsSource="{Binding InvoiceList,Mode=TwoWay}"
+                                      Background="Transparent">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                        <Setter Property="Foreground" Value="#303"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="开票日期" Width="120">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding InvoiceDate, StringFormat={}{0:yyyy-MM-dd}}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150"  Header="发票代码">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding InvoiceCode}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="发票号码" Width="120" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding InvoiceNo}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="销售方名称">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  HorizontalAlignment="Center"  VerticalAlignment="Center" Text="{Binding XSFMC}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150" Header="不含税金额">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center"  VerticalAlignment="Center" Text="{Binding HJBHSJE, StringFormat={}{0:F2}}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150" Header="税额">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding SE, StringFormat={}{0:F2}}" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <Image Name="imgTip" Visibility="Collapsed"  Margin="0,30"  Stretch="None" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/cy-empty.png" ></Image>
+            <gifLib:GifImage Visibility="Collapsed" x:Name="gifLoading" Stretch="None"  Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/timg.gif" />
+            <my:PageControl Margin="0,5" Visibility="Collapsed" x:Name="pcPage" DataSourcePageSize="pcPage_DataSourcePageSize"  PageSize="20"  />
+
+        </StackPanel>
+    </Grid>
+</Page>

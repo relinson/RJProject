@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9B70378-7361-4A44-8B46-7ABC2A92CBB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PRO_ReceiptsInvMgr.Application</RootNamespace>
+    <AssemblyName>PRO_ReceiptsInvMgr.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.2\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.105.2\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.105.2\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppManagerService.cs" />
+    <Compile Include="FpcyService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Global\JXInterfaceDataObject.cs" />
+    <Compile Include="Global\WSInterfaceObject.cs" />
+    <Compile Include="JXManagerService.cs" />
+    <Compile Include="MainWindowService.cs" />
+    <Compile Include="AppService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="CommonService.cs" />
+    <Compile Include="Global\GlobalInfo.cs" />
+    <Compile Include="Global\UpdateResourece.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QaService.cs" />
+    <Compile Include="SQLiteHelper.cs" />
+    <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\FpcyViewModel.cs" />
+    <Compile Include="ViewModel\RzqdViewModel.cs" />
+    <Compile Include="ViewModel\YqyjViewModel.cs" />
+    <Compile Include="ViewModel\GxrzViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="WSInterface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.BLL\PRO_ReceiptsInvMgr.BLL.csproj">
+      <Project>{4776DF3C-C23E-400D-8D24-597E359B8FC8}</Project>
+      <Name>PRO_InvoiceDevice.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Component\PRO_ReceiptsInvMgr.Component.csproj">
+      <Project>{8ae2d3e3-3791-4702-a77f-26909442c848}</Project>
+      <Name>PRO_InvoiceDevice.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Core\PRO_ReceiptsInvMgr.Core.csproj">
+      <Project>{d3b6cc51-6259-472b-b42f-cac1ee80c932}</Project>
+      <Name>PRO_InvoiceDevice.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Domain\PRO_ReceiptsInvMgr.Domain.csproj">
+      <Project>{47750c94-5d56-4e5f-84f1-8804b818951d}</Project>
+      <Name>PRO_InvoiceDevice.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Logging\PRO_ReceiptsInvMgr.Logging.csproj">
+      <Project>{072dba99-34a4-49cc-84d1-a6ef73b5e48d}</Project>
+      <Name>PRO_InvoiceDevice.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Model\PRO_ReceiptsInvMgr.Model.csproj">
+      <Project>{36edaac7-2ef0-46f5-aace-41613ba57a4c}</Project>
+      <Name>PRO_InvoiceDevice.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Resources\PRO_ReceiptsInvMgr.Resources.csproj">
+      <Project>{e57903fa-9f44-48d9-b9f1-38d69d9e02d1}</Project>
+      <Name>PRO_InvoiceDevice.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

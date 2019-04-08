@@ -1,0 +1,50 @@
+﻿<Window x:Class="PRO_ReceiptsInvMgr.Client.UI.JXGL.JXLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:local="clr-namespace:PRO_ReceiptsInvMgr.Client.Resources.xskin"
+        mc:Ignorable="d" Height="300" Width="420"  AllowsTransparency="True"
+         xmlns:xly="clr-namespace:Util.Controls;assembly=Util.Controls"
+         ResizeMode="NoResize" ShowInTaskbar="False"   OpacityMask="White" Background="Transparent"
+         WindowStyle="None"  WindowStartupLocation="CenterScreen" BorderThickness="10" Closing="Window_Closing">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="12" Color="#0e285c" Direction="90" Opacity="0.2" ShadowDepth="3"/>
+    </Window.Effect>
+    
+    <Border  CornerRadius="12" MouseLeftButtonDown="top_MouseLeftButtonDown" Name="top">
+        <Border.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/login-bg-login.png"></ImageBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="6"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#fff" FontSize="14" Text="登录"></TextBlock>
+                <Button Name="btnClose"
+                            Content="Close"
+                            Width="40" Height="30"
+                             FlowDirection="LeftToRight" Click="btnClose_Click" 
+                            Style="{DynamicResource CloseStyle}" HorizontalAlignment="Right"  />
+            </Grid>
+
+
+            <!--<StackPanel Grid.Row="2" Margin="0,15,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Cursor="Hand" Name="tbLogin" Text="登 录" FontSize="18" Foreground="#333" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"></TextBlock>
+                <TextBlock Cursor="Hand" Name="tbRegister" Text="注 册" FontSize="18" Foreground="#a9c9ff" Margin="50,0,0,0" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"></TextBlock>
+            </StackPanel>-->
+            <!--<Image Name="imgArrow" Grid.Row="3" Margin="150,0,0,0" HorizontalAlignment="Left" Stretch="None" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXLogin/icon-arrow.png"></Image>-->
+            <StackPanel Grid.Row="4">
+                <PasswordBox Name="pwd" Width="340" FontSize="16" Foreground="#333" Height="43" Margin="0,30,0,25"  Style="{StaticResource KeyPasswordBox}" xly:ControlAttachProperty.Watermark="请输入税盘口令" xly:ControlAttachProperty.CornerRadius="22" Background="#fff" PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
+                <Button Name="btnLogin" IsDefault="true"  Width="340" Height="45" Style="{StaticResource JXLoginBtn}" Content="登 录" Click="btnLogin_Click"></Button>
+            </StackPanel>
+        </Grid>
+
+    </Border>
+
+</Window>

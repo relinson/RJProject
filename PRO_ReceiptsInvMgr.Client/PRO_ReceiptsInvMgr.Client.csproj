@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D984E6AE-A6DB-412E-9CA0-AF2E02FE8238}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PRO_ReceiptsInvMgr.Client</RootNamespace>
+    <AssemblyName>PRO_ReceiptsInvMgr.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>ico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=1.25.7.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Wpf, Version=1.25.7.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CefSharp.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ReachFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.2\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.105.2\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.105.2\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helper\BoxInfoHelper.cs" />
+    <Compile Include="Helper\CopyFiles.cs" />
+    <Compile Include="Helper\CRC.cs" />
+    <Compile Include="Helper\DeviceHelper.cs" />
+    <Compile Include="Helper\DllInvoke.cs" />
+    <Compile Include="Helper\GetToken.cs" />
+    <Compile Include="Helper\JsDiskHelper.cs" />
+    <Compile Include="Helper\MachineCode.cs" />
+    <Compile Include="Helper\ProcessHelper.cs" />
+    <Compile Include="Resources\customdatepicker\DatePickerCalendar.cs" />
+    <Compile Include="Resources\customdatepicker\DatePickerDateFormat.cs" />
+    <Compile Include="Resources\xskin\BaseWindow.cs" />
+    <Compile Include="Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AppDownload.xaml.cs">
+      <DependentUpon>AppDownload.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AppManager.xaml.cs">
+      <DependentUpon>AppManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXLogin.xaml.cs">
+      <DependentUpon>JXLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXRegister.xaml.cs">
+      <DependentUpon>JXRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXYqyj.xaml.cs">
+      <DependentUpon>JXYqyj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXRzqd.xaml.cs">
+      <DependentUpon>JXRzqd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXGxgz.xaml.cs">
+      <DependentUpon>JXGxgz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\JXManager.xaml.cs">
+      <DependentUpon>JXManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\CYJG_02.xaml.cs">
+      <DependentUpon>CYJG_02.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\CYJG_04.xaml.cs">
+      <DependentUpon>CYJG_04.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\CYJG_03.xaml.cs">
+      <DependentUpon>CYJG_03.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\CYJG_JS.xaml.cs">
+      <DependentUpon>CYJG_JS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\CYJG_01.xaml.cs">
+      <DependentUpon>CYJG_01.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FPCX\FPCY.xaml.cs">
+      <DependentUpon>FPCY.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\GxrzConfirm.xaml.cs">
+      <DependentUpon>GxrzConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\JXGL\Print\DocumentRenderer.cs" />
+    <Compile Include="UI\JXGL\Print\IDocumentRenderer.cs" />
+    <Compile Include="UI\JXGL\Print\PrintPreviewWindow.xaml.cs">
+      <DependentUpon>PrintPreviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModifyZcm.xaml.cs">
+      <DependentUpon>ModifyZcm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModifyPwd.xaml.cs">
+      <DependentUpon>ModifyPwd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NoticeWindow.xaml.cs">
+      <DependentUpon>NoticeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PDFMessage.xaml.cs">
+      <DependentUpon>PDFMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MessageBoxEx.xaml.cs">
+      <DependentUpon>MessageBoxEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QA.xaml.cs">
+      <DependentUpon>QA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ComboBoxWithCommand.cs" />
+    <Compile Include="UserControls\DatePickerHelper.cs" />
+    <Compile Include="UserControls\PageControl.xaml.cs">
+      <DependentUpon>PageControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\style\Scrollbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\style\Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\xskin\BaseWindowTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Start.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AppDownload.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AppManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXLogin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\JXGL\JXRegister.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXYqyj.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXRzqd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXGxgz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FPCX\CYJG_02.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FPCX\CYJG_04.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FPCX\CYJG_03.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\FPCX\CYJG_JS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\FPCX\CYJG_01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\FPCX\FPCY.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\GxrzConfirm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\Print\Document.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\Print\PrintPreviewWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ModifyZcm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\ModifyPwd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\NoticeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\PDFMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MessageBoxEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\QA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="Token.dll" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-print-hover_03.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-print_03.png" />
+    <Resource Include="Resources\image\init.png" />
+    <Resource Include="Resources\image\main-banner_03.jpg" />
+    <None Include="用户手册.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Resources\image\banner5.jpg" />
+    <Resource Include="Resources\image\icon\2.ico" />
+    <Resource Include="Resources\image\logo.png" />
+    <EmbeddedResource Include="认证清单格式.xlsx" />
+    <Resource Include="ico.ico" />
+    <Content Include="AisinoJsbDll.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cryp_api.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Cryp_Ctl.ocx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\image\JXGL\login-bg-login.png" />
+    <Resource Include="Resources\image\JXGL\login-bg-reg.png" />
+    <Resource Include="Resources\iconfont.ttf" />
+    <Content Include="Driver\skpDriver1.0.8.7.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Driver\jspDriver1.1.1.12.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSDiskDLL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReadAreaCode.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\xskin\icon\fp-btn-hover_02.png" />
+    <Resource Include="Resources\xskin\icon\fp-btn-hover_03.png" />
+    <Resource Include="Resources\xskin\icon\fp-btn-hover_04.png" />
+    <Resource Include="Resources\xskin\icon\fp-btn_02.png" />
+    <Resource Include="Resources\xskin\icon\fp-btn_03.png" />
+    <Resource Include="Resources\xskin\icon\fp-btn_04.png" />
+    <Resource Include="Resources\image\answer.png" />
+    <Resource Include="Resources\image\arrow.png" />
+    <Resource Include="Resources\image\bg.png" />
+    <Resource Include="Resources\image\bg02.png" />
+    <Resource Include="Resources\image\bg03.png" />
+    <Resource Include="Resources\image\bg04.png" />
+    <Resource Include="Resources\image\bg05.png" />
+    <Resource Include="Resources\image\book.png" />
+    <Resource Include="Resources\image\btn01-active.png" />
+    <Resource Include="Resources\image\btn01-hover.png" />
+    <Resource Include="Resources\image\btn01.png" />
+    <Resource Include="Resources\image\btn02.png" />
+    <Resource Include="Resources\image\btn03.png" />
+    <Resource Include="Resources\image\btn04-active.png" />
+    <Resource Include="Resources\image\btn04-hover.png" />
+    <Resource Include="Resources\image\btn04.png" />
+    <Resource Include="Resources\image\close-hover.png" />
+    <Resource Include="Resources\image\close.png" />
+    <Resource Include="Resources\image\confirm-focus.png" />
+    <Resource Include="Resources\image\confirm-hover.png" />
+    <Resource Include="Resources\image\confirm.png" />
+    <Resource Include="Resources\image\content-bg.png" />
+    <Resource Include="Resources\image\delete-btn.jpg" />
+    <Resource Include="Resources\image\downloading.jpg" />
+    <Resource Include="Resources\image\font.png" />
+    <Resource Include="Resources\image\fp-bg-btm.png" />
+    <Resource Include="Resources\image\fp-bg-inner.png" />
+    <Resource Include="Resources\image\fp-bg-top_01.png" />
+    <Resource Include="Resources\image\fp-btn-add.png" />
+    <Resource Include="Resources\image\fp-close-hover.png" />
+    <Resource Include="Resources\image\fp-close.png" />
+    <Resource Include="Resources\image\fp-help-hover.png" />
+    <Resource Include="Resources\image\fp-help.png" />
+    <Resource Include="Resources\image\fp-icon-app.png" />
+    <Resource Include="Resources\image\fp-icon-link.png" />
+    <Resource Include="Resources\image\fp-icon-qq.png" />
+    <Resource Include="Resources\image\fp-icon-tel.png" />
+    <Resource Include="Resources\image\fp-icon-yhsm.png" />
+    <Resource Include="Resources\image\fp-kp-btn-hover.png" />
+    <Resource Include="Resources\image\fp-kp-btn.png" />
+    <Resource Include="Resources\image\fp-liststyle-hover.png" />
+    <Resource Include="Resources\image\fp-liststyle.png" />
+    <Resource Include="Resources\image\fp-logo.png" />
+    <Resource Include="Resources\image\fp-min-hover.png" />
+    <Resource Include="Resources\image\fp-min.png" />
+    <Resource Include="Resources\image\gonggao-bg.png" />
+    <Resource Include="Resources\image\icon.png" />
+    <Resource Include="Resources\image\icon01.png" />
+    <Resource Include="Resources\image\icon02.png" />
+    <Resource Include="Resources\image\icon03.png" />
+    <Resource Include="Resources\image\icon04.png" />
+    <Resource Include="Resources\image\icon05.png" />
+    <Resource Include="Resources\image\icon06.png" />
+    <Resource Include="Resources\image\icon07.png" />
+    <Resource Include="Resources\image\icon08-hover.png" />
+    <Resource Include="Resources\image\icon08.png" />
+    <Resource Include="Resources\image\icon09-hover.png" />
+    <Resource Include="Resources\image\icon09.png" />
+    <Resource Include="Resources\image\icon10-hover.png" />
+    <Resource Include="Resources\image\icon10.png" />
+    <Resource Include="Resources\image\icon12.png" />
+    <Resource Include="Resources\image\icon13.png" />
+    <Resource Include="Resources\image\icon14.png" />
+    <Resource Include="Resources\image\icon15.png" />
+    <Resource Include="Resources\image\icon16-hover.png" />
+    <Resource Include="Resources\image\icon16.png" />
+    <Resource Include="Resources\image\icon60-hover.png" />
+    <Resource Include="Resources\image\icon60.png" />
+    <Resource Include="Resources\image\icon\1.ico" />
+    <Resource Include="Resources\image\kuang.png" />
+    <Resource Include="Resources\image\large-circle-preloader.gif" />
+    <Resource Include="Resources\image\link-logo01.png" />
+    <Resource Include="Resources\image\load-bg02.jpg" />
+    <Resource Include="Resources\image\loading.gif" />
+    <Resource Include="Resources\image\login\lg1.png" />
+    <Resource Include="Resources\image\login\lg2.png" />
+    <Resource Include="Resources\image\login\lg3.png" />
+    <Resource Include="Resources\image\login\logbg.png" />
+    <Resource Include="Resources\image\pic.png" />
+    <Resource Include="Resources\image\pic2.png" />
+    <Resource Include="Resources\image\plus-hover.png" />
+    <Resource Include="Resources\image\plus.png" />
+    <Resource Include="Resources\image\print.png" />
+    <Resource Include="Resources\image\question.png" />
+    <Resource Include="Resources\image\quxiao.png" />
+    <Resource Include="Resources\image\restart-btn.jpg" />
+    <Resource Include="Resources\image\saomiao.png" />
+    <Resource Include="Resources\image\shenji.png" />
+    <Resource Include="Resources\image\switch-hover.png" />
+    <Resource Include="Resources\image\switch.png" />
+    <Resource Include="Resources\image\tbg.png" />
+    <Resource Include="Resources\image\timg.gif" />
+    <Resource Include="Resources\image\title-q.png" />
+    <Resource Include="Resources\image\top.png" />
+    <Resource Include="Resources\image\yianzhuang.png" />
+    <Resource Include="Resources\image\cy-btn-back-hover.png" />
+    <Resource Include="Resources\image\cy-btn-back.png" />
+    <Resource Include="Resources\image\cy-type-dian.png" />
+    <Resource Include="Resources\image\cy-type-pu.png" />
+    <Resource Include="Resources\image\cy-type-zhuan.png" />
+    <Resource Include="Resources\image\cy-empty.png" />
+    <Resource Include="Resources\image\cy-type-juan.png" />
+    <Resource Include="Resources\image\cy-type-tong.png" />
+    <Resource Include="Resources\image\cy-status-hover_03.png" />
+    <Resource Include="Resources\image\cy-status_03.png" />
+    <Resource Include="Resources\image\cy-status_06.png" />
+    <Resource Include="Resources\image\cy-status_08.png" />
+    <Resource Include="Resources\image\cy-type_03.png" />
+    <Resource Include="Resources\image\cy-type_06.png" />
+    <Resource Include="Resources\image\icon-jxgl-01-hover.png" />
+    <Resource Include="Resources\image\icon-jxgl-01.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-gx-hover_20.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-gx-hover_24.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-gx_20.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-output-hover_03.png" />
+    <Resource Include="Resources\image\JXGL\pzb-btn-output_03.png" />
+    <Resource Include="Resources\image\JXGL\pzb-checkbox-checked_24.png" />
+    <Resource Include="Resources\image\JXGL\pzb-checkbox_24.png" />
+    <Resource Include="Resources\image\JXGL\pzb-sort_27.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_03.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_06.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_08.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_10.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_12.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon_03.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon_06.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon_08.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon_10.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon_12.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-line-btm.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_05.png" />
+    <Resource Include="Resources\image\JXGL\pzb-tab-icon-active_07.png" />
+    <Resource Include="Resources\image\fp-bg.png" />
+    <Resource Include="Resources\image\JXLogin\fp-bg.png" />
+    <Resource Include="Resources\image\JXLogin\icon-arrow.png" />
+    <Resource Include="Resources\image\JXLogin\icon-key.png" />
+    <Resource Include="Resources\image\JXLogin\login-bg.png" />
+    <Resource Include="Resources\image\JXLogin\login-btn-big-hover.png" />
+    <Resource Include="Resources\image\JXLogin\login-btn-big.png" />
+    <Resource Include="Resources\image\JXLogin\login-btn-small-hover.png" />
+    <Resource Include="Resources\image\JXLogin\login-btn-small.png" />
+    <Resource Include="Resources\image\JXLogin\icon-exit.png" />
+    <Resource Include="Resources\image\zft-icon_26.png" />
+    <Resource Include="Resources\image\zft-icon_28.png" />
+    <Resource Include="Resources\image\zft-icon_34.png" />
+    <Resource Include="Resources\image\zft-icon_36.png" />
+    <Resource Include="Resources\image\zft-icon-hover_26.png" />
+    <Resource Include="Resources\image\zft-icon-hover_28.png" />
+    <Resource Include="Resources\image\zft-icon-hover_34.png" />
+    <Resource Include="Resources\image\zft-icon-hover_36.png" />
+    <Resource Include="Resources\image\JXGL\tip.png" />
+    <Resource Include="Resources\image\JXLogin\icon-exit-hover.png" />
+    <Resource Include="Resources\image\JXGL\icon-warning.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Application\PRO_ReceiptsInvMgr.Application.csproj">
+      <Project>{c9b70378-7361-4a44-8b46-7abc2a92cbb6}</Project>
+      <Name>PRO_InvoiceDevice.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.BLL\PRO_ReceiptsInvMgr.BLL.csproj">
+      <Project>{4776df3c-c23e-400d-8d24-597e359b8fc8}</Project>
+      <Name>PRO_InvoiceDevice.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Component\PRO_ReceiptsInvMgr.Component.csproj">
+      <Project>{8ae2d3e3-3791-4702-a77f-26909442c848}</Project>
+      <Name>PRO_InvoiceDevice.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Core\PRO_ReceiptsInvMgr.Core.csproj">
+      <Project>{d3b6cc51-6259-472b-b42f-cac1ee80c932}</Project>
+      <Name>PRO_InvoiceDevice.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Domain\PRO_ReceiptsInvMgr.Domain.csproj">
+      <Project>{47750c94-5d56-4e5f-84f1-8804b818951d}</Project>
+      <Name>PRO_InvoiceDevice.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Logging\PRO_ReceiptsInvMgr.Logging.csproj">
+      <Project>{072dba99-34a4-49cc-84d1-a6ef73b5e48d}</Project>
+      <Name>PRO_InvoiceDevice.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Model\PRO_ReceiptsInvMgr.Model.csproj">
+      <Project>{36edaac7-2ef0-46f5-aace-41613ba57a4c}</Project>
+      <Name>PRO_InvoiceDevice.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Resources\PRO_ReceiptsInvMgr.Resources.csproj">
+      <Project>{e57903fa-9f44-48d9-b9f1-38d69d9e02d1}</Project>
+      <Name>PRO_InvoiceDevice.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util.Controls\Util.Controls.csproj">
+      <Project>{343f577e-6388-442c-b725-2ea6893ab221}</Project>
+      <Name>Util.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\xskin\icon\max.png" />
+    <Resource Include="Resources\xskin\icon\rest.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script\InitializeScript.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\xskin\icon\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icudt.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libcef.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net40\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

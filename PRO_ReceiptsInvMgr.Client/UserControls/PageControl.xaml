@@ -1,0 +1,212 @@
+﻿<UserControl x:Class="PRO_ReceiptsInvMgr.Client.UserControls.PageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.Resources>
+            <Style x:Key="frontStyle" TargetType="{x:Type Button}">
+                <Setter Property="Cursor"
+                Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Image Name="img"
+                               Margin="0,0,0,0"
+                               Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon_26.png"
+                               Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Source"
+                                    Value="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon-hover_26.png"
+                                    TargetName="img" />
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="previewStyle" TargetType="{x:Type Button}">
+                <Setter Property="Cursor"
+                Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Image Name="img"
+                               Margin="0,0,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                               Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon_28.png"
+                               Stretch="None" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Source"
+                                    Value="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon-hover_28.png"
+                                    TargetName="img" />
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="nextStyle" TargetType="{x:Type Button}">
+                <Setter Property="Cursor"
+                Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Image Name="img"
+                               Margin="0,0,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                               Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon_34.png"
+                               Stretch="None" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Source"
+                                    Value="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon-hover_34.png"
+                                    TargetName="img" />
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="LastStyle" TargetType="{x:Type Button}">
+                <Setter Property="Cursor"
+                Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Image Name="img"
+                               Margin="0,0,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                               Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon_36.png"
+                               Stretch="None" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Source"
+                                    Value="/PRO_ReceiptsInvMgr.Client;component/Resources/image/zft-icon-hover_36.png"
+                                    TargetName="img" />
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="pageStyle" TargetType="{x:Type Button}">
+                <Setter Property="Cursor"
+                Value="Hand" />
+                <Setter Property="Background"
+                Value="#fff" />
+                <Setter Property="Foreground"
+                Value="#aaa" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border   x:Name="bd" Width="20" Height="20" Background="{TemplateBinding Background}" CornerRadius="3">
+                                <TextBlock FontFamily="Arial" FontSize="12" x:Name="txt" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                 Value="True">
+                                    <Setter Property="Background"
+                                    Value="#4ba6e6"
+                                    TargetName="bd" />
+                                    <Setter Property="Foreground"
+                                    Value="#fff"
+                                    TargetName="txt" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver"
+                                 Value="false">
+                                    <Setter Property="BorderBrush"
+                                    Value="#e5e5e5"
+                                    TargetName="bd" />
+                                    <Setter Property="BorderThickness"
+                                    Value="1"
+                                    TargetName="bd" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Name="label1" Foreground="#afb7c4" FontSize="12"
+               Grid.Column="0"
+               VerticalContentAlignment="Center"
+               Content=""></Label>
+        <StackPanel Grid.Column="1"  HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Name="FrontPage"
+                Grid.Column="2"
+                Height="18" Width="18"
+                  Style="{StaticResource frontStyle}" Click="FrontPage_Click"
+                ></Button>
+            <Button Name="PreviewPage" Margin="5,0,0,0"
+                Grid.Column="3"
+                 Height="18" Width="18"
+                Style="{StaticResource previewStyle}"
+                    Click="PreviewPage_Click"
+                HorizontalAlignment="Right"
+              ></Button>
+
+            <StackPanel Name="pageNumberSPL" VerticalAlignment="Center" Orientation="Horizontal">
+                <Button Name="PageNumber1" Margin="5,0,0,0"
+                Content="1"
+                Grid.Column="3"
+                Style="{StaticResource pageStyle}" Visibility="Collapsed" Click="PageNumber_Click"
+                HorizontalAlignment="Right"></Button>
+                <Button Name="PageNumber2" Margin="5,0,0,0"
+                Content="2"
+                Grid.Column="3"
+                Style="{StaticResource pageStyle}" Visibility="Collapsed" Click="PageNumber_Click"
+                HorizontalAlignment="Right"></Button>
+                <Button Name="PageNumber3" Margin="5,0,0,0"
+                Content="3"
+                Grid.Column="3"
+                Style="{StaticResource pageStyle}" Visibility="Collapsed" Click="PageNumber_Click"
+                HorizontalAlignment="Right"></Button>
+                <Button Name="PageNumber4" Margin="5,0,0,0"
+                Content="4"
+                Grid.Column="3"
+                Style="{StaticResource pageStyle}" Visibility="Collapsed" Click="PageNumber_Click"
+                HorizontalAlignment="Right"></Button>
+                <Button Name="PageNumber5" Margin="5,0,0,0"
+                Content="5"
+                Grid.Column="3"
+                Style="{StaticResource pageStyle}" Visibility="Collapsed" Click="PageNumber_Click"
+                HorizontalAlignment="Right"></Button>
+            </StackPanel>
+           
+            
+            <Button Name="NextPage" Margin="5,0,0,0"
+                Grid.Column="3"
+                 Height="18" Width="18"
+                Style="{StaticResource nextStyle}"
+                HorizontalAlignment="Right"
+                Click="NextPage_Click"></Button>
+
+            <Button Name="LastPage" Margin="5,0"
+                Grid.Column="3"
+                 Height="18" Width="18"
+                Style="{StaticResource LastStyle}" Click="LastPage_Click"
+                HorizontalAlignment="Right" ></Button>
+            
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
+

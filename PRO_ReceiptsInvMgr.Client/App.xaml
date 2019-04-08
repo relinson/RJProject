@@ -1,0 +1,22 @@
+﻿<Application x:Class="PRO_ReceiptsInvMgr.Client.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/PRO_ReceiptsInvMgr.Client;component/Resources/style/Default.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/BaseWindowTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/PRO_ReceiptsInvMgr.Client;component/Resources/style/Scrollbar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Util.Controls;component/Style/Colors.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Util.Controls;component/Style/Themes/FIcon.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Util.Controls;component/Control/FButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Util.Controls;component/Style/Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBox}"></Style>
+            <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource for_scrollbar}"></Style>
+            <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource DefaultScrollViewer}"></Style>
+            <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DefaultDataGrid}"></Style> 
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

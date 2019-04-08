@@ -1,0 +1,77 @@
+﻿<local:BaseWindow x:Class="PRO_ReceiptsInvMgr.Client.UI.JXGL.JXManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PRO_ReceiptsInvMgr.Client.Resources.xskin"
+        mc:Ignorable="d"
+        Icon="/PRO_ReceiptsInvMgr.Client;component/Resources/image/icon/1.ico" Loaded="BaseWindow_Loaded"
+        Title="进项管理"   ResizeMode="NoResize"  Height="650" Width="1080"   WindowStartupLocation="CenterScreen"  AllowsTransparency="True" IsDisplayMin="False" IsDisplayQA="False" IsDisplayMax="False" Closing="BaseWindow_Closing">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style x:Key="MenuButton" TargetType="{x:Type Button}">
+                    <Setter Property="Content" Value="{x:Null}" />
+                    <Setter Property="VerticalAlignment" Value="Bottom" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="btnBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <TextBlock>
+                                        <StackPanel Orientation="Horizontal" Margin="5,0" x:Name="btnPanel">
+                                            <Border    x:Name="borderImg" Width="24"  Height="24"  HorizontalAlignment="Center"  Background="{TemplateBinding Background}"></Border>
+                                            <TextBlock Style="{StaticResource TextBlockStyle}" Margin="10,0,0,0"  HorizontalAlignment="Center" Foreground="{TemplateBinding Foreground}"  Text="{TemplateBinding Content}"></TextBlock>
+                                        </StackPanel>
+                                    </TextBlock>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border BorderThickness="0,0,0,1" BorderBrush="#eee"></Border>
+            <StackPanel Name="stpBtnContent" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Button Content="勾选认证"  Style="{StaticResource MenuButton}" Name="btnGXRZ"  Tag="tabGXRZ" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_03.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Visibility="Collapsed" Content="抵扣统计"  Style="{StaticResource MenuButton}" Name="btnDKTJ"  Tag="tabDKTJ" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_06.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button  Visibility="Collapsed" Content="统计查询" Style="{StaticResource MenuButton}" Name="btnTJCX"  Tag="tabTJCX" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_08.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Content="逾期预警" Style="{StaticResource MenuButton}" Name="btnYQYJ"  Tag="tabYQYJ" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_10.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Content="认证清单" Style="{StaticResource MenuButton}" Name="btnRZQD"  Tag="tabRZQD" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_12.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid  Focusable="False"  Name="grdContent" Grid.Row="1">
+            <Frame  Name="frame"  VerticalAlignment="Top"  Margin="0,0,0,10"  NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
+
+    </Grid>
+</local:BaseWindow>

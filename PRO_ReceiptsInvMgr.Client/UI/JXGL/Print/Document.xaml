@@ -1,0 +1,190 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              ColumnWidth="400" FontSize="14" FontFamily="宋体"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" TextOptions.TextFormattingMode="Display">
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="BorderedTable">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="BorderedCell">
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="宋体"></Setter>
+        </Style>
+    </FlowDocument.Resources>
+
+    <Section BreakPageBefore="True">
+    <Table FontSize="16">
+        <Table.Columns>
+            <TableColumn Width="350"></TableColumn>
+            <TableColumn Width="350"></TableColumn>
+        </Table.Columns>
+        <TableRowGroup>
+            <TableRow>
+                <TableCell TextAlignment="Center"  ColumnSpan="2">
+                    <Paragraph Margin="0,10">
+                        <Run FontSize="22"  Text="专用发票认证结果清单(认证相符)"></Run>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell TextAlignment="Center"  ColumnSpan="2">
+                    <Paragraph Margin="0,15">
+                            <Run  Text="{Binding Skssq, StringFormat={}税款所属期{0}}"></Run>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell TextAlignment="Left">
+                        <Paragraph>
+                        <Run  Text="企业名称："></Run>
+                        <Run  Text="{Binding Qymc}"></Run>
+                    </Paragraph>
+                </TableCell>
+                <TableCell TextAlignment="Left" LineHeight="30">
+                        <Paragraph>
+                        <Run  Text="纳税人识别号："></Run>
+                        <Run  Text="{Binding Nsrsbh}"></Run>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+    
+    <Table Style="{StaticResource BorderedTable}">
+        <Table.Columns>
+            <TableColumn Width="30"></TableColumn>
+            <TableColumn Width="80"></TableColumn>
+            <TableColumn Width="70"></TableColumn>
+            <TableColumn Width="75"></TableColumn>
+            <TableColumn Width="145"></TableColumn>
+            <TableColumn Width="65"></TableColumn>
+            <TableColumn Width="60"></TableColumn>
+            <TableColumn Width="30"></TableColumn>
+            <TableColumn Width="70"></TableColumn>
+            <TableColumn Width="80"></TableColumn>
+        </Table.Columns>
+        <TableRowGroup Name="rowsDetails">
+            <TableRow  FontSize="11" FontWeight="Bold" >
+                <TableCell  Style="{StaticResource BorderedCell}">
+                    <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">序号</Paragraph>
+                </TableCell>
+                <TableCell  Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5" TextAlignment="Center">发票代码</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">发票号码</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">开票日期</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">销售方名称</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">金额</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">税额</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">税率</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5" TextAlignment="Center">认证结果</Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderedCell}">
+                    <Paragraph Margin="0,5,0,5"  TextAlignment="Center">发票类型</Paragraph>
+                </TableCell>
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+    </Section>
+    <Section BreakPageBefore="True">
+        <Table FontSize="16">
+            <Table.Columns>
+                <TableColumn Width="700"></TableColumn>
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell TextAlignment="Center" LineHeight="32.5">
+                        <Paragraph>
+                            <Run BaselineAlignment="Center" FontWeight="Bold" FontSize="22"  Text="认证结果通知书"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell LineHeight="27.5"></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell TextAlignment="Left" LineHeight="30" ColumnSpan="2">
+                        <Paragraph>
+                            <Run FontSize="16" Text="{Binding Qymc,StringFormat={}{0}:}"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell LineHeight="27.5"></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell  FontSize="16" LineHeight="20">
+                        <Paragraph>
+                            <Run Text="{Binding JgContent}"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell TextAlignment="Left" LineHeight="30">
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+
+        <Table Style="{StaticResource BorderedTable}">
+            <Table.Columns>
+                <TableColumn Width="175"></TableColumn>
+                <TableColumn Width="175"></TableColumn>
+                <TableColumn Width="175"></TableColumn>
+                <TableColumn Width="175"></TableColumn>
+            </Table.Columns>
+            <TableRowGroup Name="rowsDetails2">
+                <TableRow  FontSize="18" FontWeight="Bold" >
+                    <TableCell  Style="{StaticResource BorderedCell}" ColumnSpan="4">
+                        <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">税率分类汇总表(认证相符)</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow  FontSize="12" FontWeight="Bold" >
+                    <TableCell  Style="{StaticResource BorderedCell}">
+                        <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">税率</Paragraph>
+                    </TableCell>
+                    <TableCell  Style="{StaticResource BorderedCell}">
+                        <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">张数</Paragraph>
+                    </TableCell>
+                    <TableCell  Style="{StaticResource BorderedCell}">
+                        <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">金额</Paragraph>
+                    </TableCell>
+                    <TableCell  Style="{StaticResource BorderedCell}">
+                        <Paragraph  Margin="0,5,0,5"  TextAlignment="Center">税额</Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+
+        <Table FontSize="16">
+            <Table.Columns>
+                <TableColumn Width="700"></TableColumn>
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell TextAlignment="Right" LineHeight="32.5">
+                        <Paragraph Margin="0,30,0,0">
+                            <Run BaselineAlignment="Center" FontSize="22"  Text="{Binding NowDate, StringFormat={}{0:yyyy年MM月dd日}}"></Run>
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+    </Section>
+</FlowDocument>

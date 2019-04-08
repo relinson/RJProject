@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3B6CC51-6259-472B-B42F-CAC1EE80C932}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PRO_ReceiptsInvMgr.Core</RootNamespace>
+    <AssemblyName>PRO_ReceiptsInvMgr.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\CookieHelper.cs" />
+    <Compile Include="Helper\DataTableHelper.cs" />
+    <Compile Include="Helper\DownloadHelper.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
+    <Compile Include="Helper\ExcelConfig.cs" />
+    <Compile Include="Helper\ExeclHelper.cs" />
+    <Compile Include="Helper\GifAnimation.cs" />
+    <Compile Include="Helper\GifImage.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="Helper\HttpWebResponseUtility.cs" />
+    <Compile Include="Helper\MachineCode.cs" />
+    <Compile Include="Helper\ValidCode.cs" />
+    <Compile Include="Helper\ValueParse.cs" />
+    <Compile Include="Helper\XMLParameters.cs" />
+    <Compile Include="Helper\ZipHelper.cs" />
+    <Compile Include="Security\CryptogramConfig.cs" />
+    <Compile Include="Security\Cryptographer.cs" />
+    <Compile Include="Utilites\CRCHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\EncryptionLib.cs" />
+    <Compile Include="Security\SecurityUtil.cs" />
+    <Compile Include="Utilites\ConfigHelper.cs" />
+    <Compile Include="Utilites\DataImporter.cs" />
+    <Compile Include="Utilites\MyINIFile.cs" />
+    <Compile Include="Utilites\RegisterHelper.cs" />
+    <Compile Include="Utilites\XmlHelper.cs" />
+    <Compile Include="Utilites\ZipHelper.cs" />
+    <Compile Include="WebService\SocksProxy.cs" />
+    <Compile Include="WebService\WebServiceCaller.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Logging\PRO_ReceiptsInvMgr.Logging.csproj">
+      <Project>{072dba99-34a4-49cc-84d1-a6ef73b5e48d}</Project>
+      <Name>PRO_InvoiceDevice.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRO_ReceiptsInvMgr.Resources\PRO_ReceiptsInvMgr.Resources.csproj">
+      <Project>{e57903fa-9f44-48d9-b9f1-38d69d9e02d1}</Project>
+      <Name>PRO_InvoiceDevice.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

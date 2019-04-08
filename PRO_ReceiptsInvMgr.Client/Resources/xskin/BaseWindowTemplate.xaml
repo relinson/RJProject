@@ -1,0 +1,342 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--<LinearGradientBrush x:Key="BorderTitleBar_BackgroundBrush"
+                         EndPoint="0.5,1"
+                         StartPoint="0.5,0">
+        <GradientStop Color="#8CB4D0"
+                      Offset="0.1" />
+        <GradientStop Color="#055A9A"
+                      Offset="0.2" />
+        <GradientStop Color="#18679F"
+                      Offset="0.98" />
+    </LinearGradientBrush>-->
+    <ControlTemplate x:Key="BaseWindowControlTemplate"
+                     TargetType="Window">
+        <Border BorderBrush="#0C5F9C"
+                BorderThickness="1"
+                CornerRadius="4"
+                Background="White">
+            <DockPanel LastChildFill="True">
+                <Grid DockPanel.Dock="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border Name="borderTitleBar"
+                            Grid.Row="0"
+                            Height="25"
+                            CornerRadius="0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resources/image/fp-bg-top_01.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <Image Name="imgWinIcon"
+                           Width="20"
+                           Height="20"
+                           Margin="4,0,0,0"
+                           HorizontalAlignment="Left" />
+                    <TextBlock Name="txtWinTitle"
+                               Margin="30,0,0,0"
+                               FontSize="13"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               FontFamily="Microsoft YaHei"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center" />
+                
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Name="btnQA"
+                            Content="QA"
+                             FlowDirection="LeftToRight"
+                            Style="{DynamicResource QAButtonStyle}"
+                            Width="41.5" Height="25">
+                        </Button>
+                        <Button Name="btnMin"
+                            Content="Min"
+                            FlowDirection="LeftToRight"
+                            Style="{DynamicResource MinButtonStyle}"
+                            Width="41.5" Height="25">
+                        </Button>
+                        <Button Name="btnMax"
+                            Content="Max"
+                            Width="41.5" Height="25"
+                            FlowDirection="LeftToRight"
+                            Style="{DynamicResource MaxButtonStyle}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/xskin/icon/rest.png"
+                                       RenderOptions.BitmapScalingMode="NearestNeighbor"  Stretch="Uniform" />
+                            </Button.Background>
+                        </Button>
+                        <Button Name="btnClose"
+                            Content="Close"
+                            Width="41.5" Height="25"
+                             FlowDirection="LeftToRight"
+                            Style="{DynamicResource SysButtonStyle}" />
+                    </StackPanel>
+                  
+                    <!--<Rectangle Name="btnMinLine"
+                               Stroke="Black"
+                               StrokeThickness="0"
+                               Width="0"
+                               Margin="0,0,88.2,8.77"
+                               HorizontalAlignment="Right"
+                               Height="17">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1"
+                                                 StartPoint="0.5,0">
+                                <GradientStop Color="#85000000" />
+                                <GradientStop Offset="1"
+                                              Color="#1A4D4D4D" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>-->
+                   
+                    <!--<Button Name="btnResetIco" Visibility="Hidden">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/xskin/icon/rest.png"
+                                        Stretch="Uniform" />
+                        </Button.Background>
+                    </Button>-->
+                    <!--<Button Name="btnMaxIco" Visibility="Collapsed">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/xskin/icon/max.png"
+                                        Stretch="Uniform" />
+                        </Button.Background>
+                    </Button>-->
+                    <!--<Rectangle Stroke="Black"
+                               StrokeThickness="0"
+                               Width="1"
+                               Height="17"
+                               Margin="0,0,46.2,8.77"
+                               HorizontalAlignment="Right">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1"
+                                                 StartPoint="0.5,0">
+                                <GradientStop Color="#85000000" />
+                                <GradientStop Offset="1"
+                                              Color="#1A4D4D4D" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>-->
+                    <!--<Button Name="btnClose"
+                            Content="Close"
+                            Width="41.5" Height="24"
+                            Margin="0,0,2.625,0"
+                            HorizontalAlignment="Right"
+                            Style="{DynamicResource SysButtonStyle}" />-->
+                </Grid>
+                <Border Background="{TemplateBinding Background}"
+                        Width="Auto"
+                        Height="Auto"
+                        CornerRadius="0,0,4,4"
+                        DockPanel.Dock="Top">
+                    <AdornerDecorator>
+                        <ContentPresenter />
+                    </AdornerDecorator>
+                </Border>
+            </DockPanel>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="WindowTemplateKey"
+                     TargetType="Window">
+        <Border Background="{TemplateBinding Background}">
+            <Grid>
+                <AdornerDecorator>
+                    <ContentPresenter />
+                </AdornerDecorator>
+                <ResizeGrip Visibility="Collapsed"
+                            IsTabStop="false"
+                            HorizontalAlignment="Right"
+                            x:Name="WindowResizeGrip"
+                            VerticalAlignment="Bottom" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ResizeMode"
+                               Value="CanResizeWithGrip" />
+                    <Condition Property="WindowState"
+                               Value="Normal" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility"
+                        TargetName="WindowResizeGrip"
+                        Value="Visible" />
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="BaseWindowStyle"
+           TargetType="Window">
+        <Setter Property="Template"
+                Value="{StaticResource BaseWindowControlTemplate}" />
+        <Setter Property="AllowsTransparency"
+                Value="False" />
+        <Setter Property="WindowStyle"
+                Value="None" />
+        <Style.Triggers>
+            <Trigger Property="ResizeMode"
+                     Value="CanResizeWithGrip">
+                <Setter Property="Template"
+                        Value="{StaticResource WindowTemplateKey}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--按钮-->
+    <Style x:Key="MinButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="0,0,0,0"
+                                BorderBrush="#80000000"> 
+                            <Rectangle x:Name="rectangle"
+                                       Stroke="Black"
+                                       StrokeThickness="0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/icon/fp-btn_03.png"></ImageBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Fill"
+                                    TargetName="rectangle">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/icon/fp-btn-hover_03.png"></ImageBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="QAButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="0,0,0,0"
+                                BorderBrush="#80000000">
+                            <Rectangle x:Name="rectangle"
+                                       Stroke="Black"
+                                       StrokeThickness="0">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/icon/fp-btn_02.png"></ImageBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Fill"
+                                    TargetName="rectangle">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/icon/fp-btn-hover_02.png"></ImageBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="MaxButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="0"
+                                BorderBrush="#80000000">
+
+                            <Rectangle x:Name="rectangle"
+                                       Stroke="Black"
+                                       StrokeThickness="0"
+                                       Fill="{TemplateBinding Background}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True" />
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    TargetName="border">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1"
+                                                         StartPoint="0.5,0">
+                                        <GradientStop Color="#66FFFFFF"
+                                                      Offset="0" />
+                                        <GradientStop Offset="0.379"
+                                                      Color="#24FFFFFF" />
+                                        <GradientStop Color="#13FFFFFF"
+                                                      Offset="0.741" />
+                                        <GradientStop Color="Transparent"
+                                                      Offset="0.879" />
+                                        <GradientStop Color="#47FFFFFF"
+                                                      Offset="0.978" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SysButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                BorderBrush="#80000000"
+                                BorderThickness="0,0,0,0"
+                                CornerRadius="0,0,3,0">
+
+                            <Rectangle Name="rectangle" Stroke="Black"
+                                       StrokeThickness="0">
+                                <Rectangle.Fill>
+                                    <ImageBrush  ImageSource="/Resources/xskin/icon/fp-btn_04.png"
+                                          RenderOptions.BitmapScalingMode="NearestNeighbor"       Stretch="None" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Fill"
+                                    TargetName="rectangle">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/xskin/icon/fp-btn-hover_04.png"></ImageBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
