@@ -420,4 +420,7 @@
   <data name="JSPTool" xml:space="preserve">
     <value>金报税盘税务数字证书驱动</value>
   </data>
+  <data name="BASETool" xml:space="preserve">
+    <value>{4A4CA7ED-3ECD-4267-9922-BAC9B40447BB}_is1</value>
+  </data>
 </root>

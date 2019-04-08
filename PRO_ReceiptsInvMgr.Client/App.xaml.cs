@@ -70,6 +70,10 @@ namespace PRO_ReceiptsInvMgr.Client
         /// </summary>
         private string jspTool = PRO_ReceiptsInvMgr.Resources.Common.JSPTool;
 
+        /// <summary>
+        /// 平台插件
+        /// </summary>
+        private string baseTool = PRO_ReceiptsInvMgr.Resources.Common.BASETool;
 
         /// <summary>
         ///  软件启动初始化
@@ -178,7 +182,11 @@ namespace PRO_ReceiptsInvMgr.Client
                         Environment.Exit(1);
                     }
 
-                    if (GlobalInfo.DeviceType == DeviceType.JSP.GetHashCode())
+                    if (!CheckIsInstall(baseTool))
+                    {
+                        isInit = true;
+                    }
+                    else if (GlobalInfo.DeviceType == DeviceType.JSP.GetHashCode())
                     {
                         if (!CheckIsInstall(jspTool))
                         {
@@ -193,7 +201,6 @@ namespace PRO_ReceiptsInvMgr.Client
                         }
                     }
                 }
-
 
                 if (isInit)
                 {

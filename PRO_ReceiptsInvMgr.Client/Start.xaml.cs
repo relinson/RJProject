@@ -41,6 +41,10 @@ namespace PRO_ReceiptsInvMgr.Client
             InitializeComponent();
         }
 
+        /// <summary>
+        /// base_driver插件
+        /// </summary>
+        private string baseTool = PRO_ReceiptsInvMgr.Resources.Common.BASETool;
 
         /// <summary>
         /// 税控盘插件
@@ -90,12 +94,19 @@ namespace PRO_ReceiptsInvMgr.Client
             }));
 
             
-            if (!CheckIsInstall(skpTool) && !CheckIsInstall(jspTool))
+            if (!CheckIsInstall(baseTool))
             {
                 string filebase = AppDomain.CurrentDomain.BaseDirectory + "Driver\\base_driver.exe";
-                //SilentInstall(filebase);
+
+//                 ProcessStartInfo psi = new ProcessStartInfo();
+//                 psi.Arguments = "–s –v –qn";
+//                 psi.CreateNoWindow = true;
+//                 psi.WindowStyle = ProcessWindowStyle.Hidden;
+//                 psi.FileName = filebase;
+//                 Process.Start(psi);
+
                 ProcessHelper proc = new ProcessHelper();
-                proc.PrintDoc(filebase, "");
+                proc.PrintDoc(filebase, "/S");
             }
 
             if (GlobalInfo.DeviceType == DeviceType.JSP.GetHashCode())
@@ -172,6 +183,7 @@ namespace PRO_ReceiptsInvMgr.Client
                     }
                 }
             }
+
             return result;
         }
 
