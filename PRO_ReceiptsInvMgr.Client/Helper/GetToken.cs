@@ -20,12 +20,15 @@ namespace PRO_ReceiptsInvMgr.Client.Helper
         public static string ErrorMsg { get; set; }
         public static string retCode { get; set; }
 
-        public static string GetToken_dll(string nsrsbh, string certnum, string areacode, string bbh)
+        //平台版本号
+        public static string platFormVersion = "3.2.01";
+
+        public static string GetToken_dll(string nsrsbh, string certnum, string areacode)
         {
             string rettoken = string.Empty;
             StringBuilder jsonStr = new StringBuilder(512);
 
-            int n = GetToken(certnum, areacode, nsrsbh, bbh, jsonStr);
+            int n = GetToken(certnum, areacode, nsrsbh, platFormVersion, jsonStr);
             //             if (n != 0)
             //             {
             //                 ErrorMsg = "网络通讯失败";

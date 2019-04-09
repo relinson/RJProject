@@ -753,7 +753,7 @@ namespace PRO_ReceiptsInvMgr.Client
                     do 
                     {
                         --retryCount;
-                        token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm, "3.2.01");
+                        token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm);
 
                         errCode = GetTokenHelper.retCode;
                         ErrorMsg = GetTokenHelper.ErrorMsg;

@@ -66,6 +66,20 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             {
                 string errorMsg = string.Empty;
                 GlobalInfo.skssq = service.GetJXSsq(out errorMsg);
+
+                //20190409 取数据失败时，如果是token过期则重新获取并重试
+                if (errorMsg.Contains("(token过期)"))
+                {
+                    int retryCount = 3;
+                    do
+                    {
+                        --retryCount;
+                        GlobalInfo.token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm);
+                    } while (GlobalInfo.token.Length == 0 && retryCount > 0);
+
+                    GlobalInfo.skssq = service.GetJXSsq(out errorMsg);
+                }
+
                 if (!string.IsNullOrEmpty(errorMsg))
                 {
                     this.Dispatcher.Invoke(new Action(() =>
@@ -163,7 +177,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                     do
                     {
                         --retryCount;
-                        GlobalInfo.token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm, "3.2.01");
+                        GlobalInfo.token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm);
                     } while (GlobalInfo.token.Length == 0 && retryCount > 0);
 
                     invoiceList = service.GetJXData(GxrzViewModelInstance.QueryModel, out totalCount, out msg);
@@ -258,14 +272,26 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 Task.Factory.StartNew(() =>
                 {
                     string msg = string.Empty;
-                    bool isSuccess = false;
                     this.Dispatcher.Invoke(new Action(() =>
                     {
                         WaitingBox.Show(() =>
                         {
-                            isSuccess = service.GXRZ(checkedList, out msg);
+                            service.GXRZ(checkedList, out msg);
+                            //20190409 取数据失败时，如果是token过期则重新获取并重试
+                            if (msg.Contains("(token过期)"))
+                            {
+                                int retryCount = 3;
+                                do
+                                {
+                                    --retryCount;
+                                    GlobalInfo.token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm);
+                                } while (GlobalInfo.token.Length == 0 && retryCount > 0);
+
+                                service.GXRZ(checkedList, out msg);
+                            }
                         }, PRO_ReceiptsInvMgr.Resources.Message.GxrzWait);
                     }));
+
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         if (!string.IsNullOrEmpty(msg))

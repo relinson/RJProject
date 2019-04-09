@@ -320,7 +320,7 @@ namespace PRO_ReceiptsInvMgr.Client
 //             do
 //             {
 //                 --retryCount;
-//                 GlobalInfo.token = GetTokenHelper.GetToken_dll(nsrsbh, CryptTool.UserPin, GlobalInfo.Dqdm, "3.2.01");
+//                 GlobalInfo.token = GetTokenHelper.GetToken_dll(nsrsbh, CryptTool.UserPin, GlobalInfo.Dqdm);
 //             } while (GlobalInfo.token.Length == 0 && retryCount > 0);
 
             var retObj = loginService.Login(nsrsbh, loginPwd.Password, GlobalInfo.token, out errorMsg);

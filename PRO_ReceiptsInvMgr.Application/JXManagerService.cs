@@ -44,14 +44,6 @@ namespace PRO_ReceiptsInvMgr.Application
                     var obj = new JsonSerializer().Deserialize<JXSkssqResponse>(new JsonTextReader(new StringReader(response)));
                     strResult = GetFormatStr(obj.skssq);
                 }
-                else
-                {
-                    // token 过期重试处理
-                    if (IsReTry(ref errorMsg, reTimes))
-                    {
-                        strResult = GetJXSsq(out errorMsg, 2);
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -68,7 +60,6 @@ namespace PRO_ReceiptsInvMgr.Application
         /// <returns></returns>
         public string[] GetJXKpStartEndDate(out string errorMsg, int reTimes = 1)
         {
-
             string[] strArray = new string[2];
             errorMsg = string.Empty;
             try
@@ -92,13 +83,6 @@ namespace PRO_ReceiptsInvMgr.Application
 
                     strArray[0] = GetFormatStr(obj.selectStartDate, "yyyyMMdd", "yyyy年MM月dd日");
                     strArray[1] = GetFormatStr(obj.selectEndDate, "yyyyMMdd", "yyyy年MM月dd日");
-                }
-                else
-                {
-                    if (IsReTry(ref errorMsg, reTimes))
-                    {
-                        strArray = GetJXKpStartEndDate(out errorMsg, 2);
-                    }
                 }
             }
             catch (Exception ex)
@@ -163,13 +147,6 @@ namespace PRO_ReceiptsInvMgr.Application
                         }
                     }
                 }
-//                else
-//                 {
-//                     if (IsReTry(ref errorMsg, reTimes))
-//                     {
-//                         invoiceList = GetJXData(queryModel, out totalCount, out errorMsg, 2);
-//                     }
-//                 }
 
                 totalCount = invoiceList.Count;
             }
@@ -254,11 +231,6 @@ namespace PRO_ReceiptsInvMgr.Application
                     }
                     errorMsg = sb.ToString();
                 }
-                else
-                {
-                    IsReTry(ref errorMsg, reTimes);
-                }
-
             }
             catch (Exception ex)
             {
@@ -474,13 +446,6 @@ namespace PRO_ReceiptsInvMgr.Application
                             content = content.OrderBy(x => x.kprq).ToList();
                             invoiceList = ToView(content);
                         }
-                    }
-                }
-                else
-                {
-                    if (IsReTry(ref errorMsg, reTimes))
-                    {
-                        invoiceList = GetRzqdData(query, out totalCount, out errorMsg, 2);
                     }
                 }
                 totalCount = invoiceList.Count;

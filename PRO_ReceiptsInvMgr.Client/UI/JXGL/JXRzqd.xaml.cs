@@ -29,6 +29,7 @@ using System.Windows.Forms;
 using PRO_ReceiptsInvMgr.Client.UI.JXGL.Print;
 using System.Reflection;
 using System.Data;
+using PRO_ReceiptsInvMgr.Client.Helper;
 
 namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
 {
@@ -67,7 +68,19 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 int totalCount = 0;
              
                 invoiceList = service.GetRzqdData(RzqdViewModelInstance.QueryModel, out totalCount, out msg);
-                 
+                //20190409 取数据失败时，如果是token过期则重新获取并重试
+                if (msg.Contains("(token过期)"))
+                {
+                    int retryCount = 3;
+                    do
+                    {
+                        --retryCount;
+                        GlobalInfo.token = GetTokenHelper.GetToken_dll(GlobalInfo.NSRSBH, GlobalInfo.JxPwd, GlobalInfo.Dqdm);
+                    } while (GlobalInfo.token.Length == 0 && retryCount > 0);
+
+                    invoiceList = service.GetRzqdData(RzqdViewModelInstance.QueryModel, out totalCount, out msg);
+                }
+
                 RzqdViewModelInstance.ListCount = totalCount;
 
                 RzqdViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(invoiceList);
