@@ -43,6 +43,12 @@
                     </Button.Background>
                 </Button>
 
+                <Button Content="扫码认证"  Style="{StaticResource MenuButton}" Name="btnSMRZ"  Tag="tabSMRZ" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_08.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                
                 <Button Visibility="Collapsed" Content="抵扣统计"  Style="{StaticResource MenuButton}" Name="btnDKTJ"  Tag="tabDKTJ" Grid.Row="0" Margin="20,0,0,0"  Grid.Column="0"   Cursor="Hand" HorizontalAlignment="Left"   Width="100" Height="35" Click="Button_Click"   >
                     <Button.Background>
                         <ImageBrush ImageSource="/PRO_ReceiptsInvMgr.Client;component/Resources/image/JXGL/pzb-tab-icon_06.png"></ImageBrush>

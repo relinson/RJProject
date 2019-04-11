@@ -556,6 +556,24 @@ namespace PRO_ReceiptsInvMgr.Resources {
         }
         
         /// <summary>
+        ///   查找类似 pack://application:,,,/Resources/image/JXGL/pzb-tab-icon_08.png 的本地化字符串。
+        /// </summary>
+        public static string IcoJxglSmrz {
+            get {
+                return ResourceManager.GetString("IcoJxglSmrz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 pack://application:,,,/Resources/image/JXGL/pzb-tab-icon-active_08.png 的本地化字符串。
+        /// </summary>
+        public static string IcoJxglSmrzActive {
+            get {
+                return ResourceManager.GetString("IcoJxglSmrzActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 pack://application:,,,/Resources/image/JXGL/pzb-tab-icon_10.png 的本地化字符串。
         /// </summary>
         public static string IcoJxglYqyj {

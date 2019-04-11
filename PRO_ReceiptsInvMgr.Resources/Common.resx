@@ -390,6 +390,12 @@
   <data name="IcoJxglGxrzActive" xml:space="preserve">
     <value>pack://application:,,,/Resources/image/JXGL/pzb-tab-icon-active_03.png</value>
   </data>
+  <data name="IcoJxglSmrz" xml:space="preserve">
+    <value>pack://application:,,,/Resources/image/JXGL/pzb-tab-icon_08.png</value>
+  </data>
+  <data name="IcoJxglSmrzActive" xml:space="preserve">
+    <value>pack://application:,,,/Resources/image/JXGL/pzb-tab-icon-active_08.png</value>
+  </data>
   <data name="IcoJxglRzqd" xml:space="preserve">
     <value>pack://application:,,,/Resources/image/JXGL/pzb-tab-icon_12.png</value>
   </data>

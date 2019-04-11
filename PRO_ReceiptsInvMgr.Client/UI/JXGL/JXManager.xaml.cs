@@ -52,6 +52,10 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             {
                 frame.Navigate(new JXRzqd());
             }
+            else if (btn == btnSMRZ)
+            {
+                frame.Navigate(new JXSmrz());
+            }
         }
 
         private void SetMenuImage(Button btn, ImageSource imageSource = null)
@@ -64,6 +68,10 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 if (btn.Name == btnGXRZ.Name)
                 {
                     imageSource = new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglGxrzActive));
+                }
+                else if (btn.Name == btnSMRZ.Name)
+                {
+                    imageSource = new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglSmrzActive));
                 }
                 else if (btn.Name == btnYQYJ.Name)
                 {
@@ -91,6 +99,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
         private void InitMenu()
         {
             SetMenuImage(btnGXRZ, new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglGxrz)));
+            SetMenuImage(btnSMRZ, new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglSmrz)));
             SetMenuImage(btnYQYJ, new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglYqyj)));
             SetMenuImage(btnRZQD, new BitmapImage(new Uri(PRO_ReceiptsInvMgr.Resources.Common.IcoJxglRzqd)));
         }

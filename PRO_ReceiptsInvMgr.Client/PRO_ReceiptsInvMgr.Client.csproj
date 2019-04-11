@@ -180,6 +180,9 @@
     <Compile Include="UI\AppManager.xaml.cs">
       <DependentUpon>AppManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\JXGL\JXSmrz.xaml.cs">
+      <DependentUpon>JXSmrz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\JXGL\JXLogin.xaml.cs">
       <DependentUpon>JXLogin.xaml</DependentUpon>
     </Compile>
@@ -283,6 +286,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\AppManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\JXGL\JXSmrz.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
