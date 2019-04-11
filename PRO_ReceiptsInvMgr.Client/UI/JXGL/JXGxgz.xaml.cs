@@ -68,7 +68,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 GlobalInfo.skssq = service.GetJXSsq(out errorMsg);
 
                 //20190409 取数据失败时，如果是token过期则重新获取并重试
-                if (errorMsg.Contains("(token过期)"))
+                if (errorMsg.Contains("token过期"))
                 {
                     int retryCount = 3;
                     do
@@ -171,7 +171,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
 
                 invoiceList = service.GetJXData(GxrzViewModelInstance.QueryModel, out totalCount, out msg);
                 //20190324 取数据失败时，如果是token过期则重新获取并重试
-                if (msg.Contains("(token过期)"))
+                if (msg.Contains("token过期"))
                 {
                     int retryCount = 3;
                     do
@@ -278,7 +278,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                         {
                             service.GXRZ(checkedList, out msg);
                             //20190409 取数据失败时，如果是token过期则重新获取并重试
-                            if (msg.Contains("(token过期)"))
+                            if (msg.Contains("token过期"))
                             {
                                 int retryCount = 3;
                                 do
