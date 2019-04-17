@@ -35,7 +35,9 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
     public partial class JXSmrz : Page
     {
         public GxrzViewModel SmrzViewModelInstance { get; set; }
+
         List<JXInvoiceInfo> invoiceList = new List<JXInvoiceInfo>();
+        List<JXInvoiceInfo> m_invoiceList = new List<JXInvoiceInfo>();
         List<JXInvoiceInfo> pageList = new List<JXInvoiceInfo>();
         JXManagerService service = new JXManagerService();
 
@@ -57,7 +59,6 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
  /*           string[] combValues = { "正常", "失控", "作废", "红冲", "异常", "全部" };
             cbxInvoiceState.ItemsSource = combValues;
             cbxInvoiceState.SelectedIndex = 0;*/
-
 
             Task.Factory.StartNew(() =>
             {
@@ -102,16 +103,36 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 {
                     SmrzViewModelInstance.SelectStartDate = strDateArray[0];
                     SmrzViewModelInstance.SelectEndDate = strDateArray[1];
-
-/*                    this.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                         btnQuery_Click(null, null);
-                    }));*/
                 }
             });
 
             //GetInvoiceStatusTask();
+        }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string strtmp = ((TextBox)sender).Text;
+            int index = 0, count = 0;
+            if (strtmp.Length >= 40 && strtmp.EndsWith("，"))
+            {
+                while ((index = strtmp.IndexOf('，', index)) != -1)
+                {
+                    count++;
+                    index = index + 1;
+                }
+
+                if (count == 8)
+                {
+//                     string[] sArray = strtmp.Split('，');
+//                     SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
+//                     SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
+
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        btnQuery_Click(null, null);
+                    }));
+                }
+            }
         }
 
         private void btnQuery_Click(object sender, RoutedEventArgs e)
@@ -132,11 +153,11 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 return;
             }
 
-/*            SmrzViewModelInstance.QueryModel.FPZT = cbxInvoiceState.SelectedIndex.ToString();
-            if(5 == cbxInvoiceState.SelectedIndex)
-            {
-                SmrzViewModelInstance.QueryModel.FPZT = "9";
-            }*/
+            /*            SmrzViewModelInstance.QueryModel.FPZT = cbxInvoiceState.SelectedIndex.ToString();
+                        if(5 == cbxInvoiceState.SelectedIndex)
+                        {
+                            SmrzViewModelInstance.QueryModel.FPZT = "9";
+                        }*/
 
             if (!string.IsNullOrEmpty(SmrzViewModelInstance.QueryModel.SE))
             {
@@ -148,12 +169,22 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 }
             }
 
-/*            if (DateInvoiceStart.SelectedDate.HasValue && DateInvoiceEnd.SelectedDate.HasValue &&
-                DateInvoiceStart.SelectedDate.Value.CompareTo(DateInvoiceEnd.SelectedDate.Value) > 0)
+            /*            if (DateInvoiceStart.SelectedDate.HasValue && DateInvoiceEnd.SelectedDate.HasValue &&
+                            DateInvoiceStart.SelectedDate.Value.CompareTo(DateInvoiceEnd.SelectedDate.Value) > 0)
+                        {
+                            MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.QueryDateError, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
+                            return;
+                        }*/
+            string strtmp = smrzcont.Text.ToString();
+            if (strtmp.Length < 40)
             {
-                MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.QueryDateError, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
                 return;
-            }*/
+            }
+
+            string[] sArray = strtmp.Split('，');
+            SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
+            SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
+            smrzcont.Clear();//自动清除数据
 
             SmrzViewModelInstance.IsAllChecked = false;
             imgTip.Visibility = Visibility.Collapsed;
@@ -180,23 +211,49 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                     invoiceList = service.GetJXData(SmrzViewModelInstance.QueryModel, out totalCount, out msg);
                 }
 
-                SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(invoiceList);
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    MessageBoxEx.Show(JXManager.JXManagerInstance, msg, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
+                }
+
+                if (invoiceList.Count > 0)
+                {
+                    if (m_invoiceList.Count > 0)
+                    {
+                        bool bflag = false;
+                        foreach (var item in m_invoiceList)
+                        {
+                            if (item.InvoiceCode == invoiceList.First().InvoiceCode &&
+                            item.InvoiceNo == invoiceList.First().InvoiceNo)
+                            {
+                                bflag= true;
+                            }
+                        }
+                        if (!bflag)
+                        {
+                            m_invoiceList.AddRange(invoiceList);
+                        }
+                    }
+                    else
+                    {
+                        m_invoiceList.AddRange(invoiceList);
+                    }
+                }
+
+                //显示
+                SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(m_invoiceList);
                 SmrzViewModelInstance.YqTipCounts = SmrzViewModelInstance.InvoiceList.Count(x => x.YQTXBZ);
 
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
-
                     splYqRemain.Visibility = SmrzViewModelInstance.YqTipCounts > 0 ? Visibility.Visible : Visibility.Collapsed;
 
                     pcPage.TotalCount = totalCount;
 
-                    if (!string.IsNullOrEmpty(msg))
-                    {
-                        MessageBoxEx.Show(JXManager.JXManagerInstance, msg, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
-                    }
-
                     gifLoading.Visibility = Visibility.Collapsed;
-                    if (invoiceList.Count > 0)
+
+                    
+                    if (m_invoiceList.Count > 0)
                     {
                         pcPage.Visibility = Visibility.Visible;
                         pcPage_DataSourcePageSize(null, null);
@@ -223,7 +280,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
 
         private void pcPage_DataSourcePageSize(object sender, EventArgs e)
         {
-            pageList = invoiceList.Skip((pcPage.CrrentPage - 1) * pcPage.PageSize).Take(pcPage.PageSize).ToList();
+            pageList = m_invoiceList.Skip((pcPage.CrrentPage - 1) * pcPage.PageSize).Take(pcPage.PageSize).ToList();
             SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(pageList);
         }
 
@@ -238,7 +295,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
         /// </summary>
         private void CalcTotalChecked()
         {
-            var checkedList = invoiceList.Where(x => x.IsChecked);
+            var checkedList = m_invoiceList.Where(x => x.IsChecked);
             var totalAmount = checkedList.Sum(x => x.HJBHSJE).Value;
             var totalSe = checkedList.Sum(x => x.SE).Value;
             SmrzViewModelInstance.TotalAmount = totalAmount.ToString("f2");
