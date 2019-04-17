@@ -113,7 +113,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
         {
             string strtmp = ((TextBox)sender).Text;
             int index = 0, count = 0;
-            if (strtmp.Length >= 40 && strtmp.EndsWith("，"))
+            if (strtmp.Length >= 35 && strtmp.EndsWith("，"))
             {
                 while ((index = strtmp.IndexOf('，', index)) != -1)
                 {
