@@ -157,7 +157,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                         if(5 == cbxInvoiceState.SelectedIndex)
                         {
                             SmrzViewModelInstance.QueryModel.FPZT = "9";
-                        }*/
+                        }
 
             if (!string.IsNullOrEmpty(SmrzViewModelInstance.QueryModel.SE))
             {
@@ -169,7 +169,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 }
             }
 
-            /*            if (DateInvoiceStart.SelectedDate.HasValue && DateInvoiceEnd.SelectedDate.HasValue &&
+                        if (DateInvoiceStart.SelectedDate.HasValue && DateInvoiceEnd.SelectedDate.HasValue &&
                             DateInvoiceStart.SelectedDate.Value.CompareTo(DateInvoiceEnd.SelectedDate.Value) > 0)
                         {
                             MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.QueryDateError, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
@@ -189,7 +189,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             SmrzViewModelInstance.IsAllChecked = false;
             imgTip.Visibility = Visibility.Collapsed;
             pcPage.Visibility = Visibility.Collapsed;
-            pcPage.CrrentPage = 1; //每次查询时返回第一页
+            //pcPage.CrrentPage = 1; //每次查询时返回第一页
             gifLoading.Visibility = Visibility.Visible;
             SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>();
             Task.Factory.StartNew(() =>
@@ -239,6 +239,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                         m_invoiceList.AddRange(invoiceList);
                     }
                 }
+                totalCount = m_invoiceList.Count;
 
                 //显示
                 SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(m_invoiceList);

@@ -90,7 +90,7 @@
             </StackPanel>
            <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <TextBlock Margin="0,0,0,0" Text="扫码："></TextBlock>
-                <TextBox Name="smrzcont" MaxLength="100"  TabIndex="1" xly:ControlAttachProperty.Watermark="开启扫描枪，需要将输入法切换成英文模式并将光标移入此处" Style="{StaticResource ClearButtonTextBox}" TextChanged="TextBox_TextChanged" Background="#fff" Margin="2,0"  HorizontalAlignment="Left"  xly:ControlAttachProperty.CornerRadius="5" Width="700" Height="30"  ></TextBox>
+                <TextBox Name="smrzcont" MaxLength="100"  TabIndex="1" xly:ControlAttachProperty.Watermark="开启扫描枪，需要将输入法切换成英文模式并将光标移入此处" Style="{StaticResource ClearButtonTextBox}" TextChanged="TextBox_TextChanged" Background="#fff" Margin="2,0"  HorizontalAlignment="Left"  xly:ControlAttachProperty.CornerRadius="5" Width="600" Height="30"  ></TextBox>
                 <!--                 <TextBlock  Margin="20,0,0,0" Text="开票日期：" Grid.Row="2" Grid.Column="0"></TextBlock>
                 <DatePicker Margin="2,0"   TabIndex="1"  xly:ControlAttachProperty.Watermark="开票日期起"  Name="DateInvoiceStart"  SelectedDate="{Binding QueryModel.InvoiceDateStart}"  Background="#FFF" Foreground="#000"    Style="{StaticResource ClearButtonDatePicker}" Width="125" Height="30"/>
 
@@ -111,11 +111,11 @@
                 <StackPanel Grid.Row="4" Orientation="Horizontal">
 <!--                    <TextBlock Margin="20,0,0,0" Text="发票状态："></TextBlock>
                     <ComboBox Margin="2,0"  Width="125" Height="30" MaxDropDownHeight="180" IsEditable="False" xly:ControlAttachProperty.Watermark="发票状态" SelectedValue="{Binding QueryModel.fpzt}" Name="cbxInvoiceState" Background="#fff" Style="{StaticResource DefaultComboBox}" xly:ControlAttachProperty.CornerRadius="5" SelectionChanged="cbxInvoiceState_SelectionChanged" ></ComboBox>
--->
+
                     <TextBlock Margin="0,0,0,0" Text="税额不低于："></TextBlock>
                     <TextBox Margin="2,0" MaxLength="8"  TabIndex="6" xly:ControlAttachProperty.Watermark="税额不低于"  Text="{Binding QueryModel.SE}"   Style="{StaticResource ClearButtonTextBox}" Background="#fff" HorizontalAlignment="Left"  xly:ControlAttachProperty.CornerRadius="5" Width="125" Height="30" ></TextBox>
-
-                    <TextBlock Margin="10,0,0,0" Text="总金额：" ></TextBlock>
+-->
+                    <TextBlock Margin="0,0,0,0" Text="总金额：" ></TextBlock>
                     <Label VerticalAlignment="Center" Foreground="{StaticResource HighLightColor}" Content="{Binding TotalAmount}"></Label>
                     <TextBlock  Text="元"></TextBlock>
 
