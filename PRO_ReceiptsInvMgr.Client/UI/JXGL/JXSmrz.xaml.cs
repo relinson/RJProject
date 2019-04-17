@@ -113,7 +113,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
         {
             string strtmp = ((TextBox)sender).Text;
             int index = 0, count = 0;
-            if (strtmp.Length >= 35 && strtmp.EndsWith("，"))
+            if (strtmp.Length >= 35 && strtmp.EndsWith("，")|| strtmp.EndsWith(","))
             {
                 while ((index = strtmp.IndexOf('，', index)) != -1)
                 {
@@ -121,11 +121,20 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                     index = index + 1;
                 }
 
-                if (count == 8)
+                if (count == 0)
                 {
-//                     string[] sArray = strtmp.Split('，');
-//                     SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
-//                     SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
+                    index = 0;
+                    while ((index = strtmp.IndexOf(',', index)) != -1)
+                    {
+                        count++;
+                        index = index + 1;
+                    }
+                }
+                if (count >= 7)
+                {
+                    //                     string[] sArray = strtmp.Split('，');
+                    //                     SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
+                    //                     SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
 
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
@@ -137,6 +146,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
 
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {
+            btnrzcont.Focus();
             if (string.IsNullOrEmpty(SmrzViewModelInstance.Skssq))
             {
                 MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.SkssqNotLoaded, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
@@ -181,7 +191,17 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 return;
             }
 
-            string[] sArray = strtmp.Split('，');
+            string[] sArray;
+            int index = strtmp.IndexOf(',', 0);
+            if (index >= 0)
+            {
+                sArray = strtmp.Split(',');
+            }
+            else
+            {
+                sArray = strtmp.Split('，');
+            }
+            
             SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
             SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
             smrzcont.Clear();//自动清除数据
@@ -301,6 +321,9 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             var totalSe = checkedList.Sum(x => x.SE).Value;
             SmrzViewModelInstance.TotalAmount = totalAmount.ToString("f2");
             SmrzViewModelInstance.TotalSE = totalSe.ToString("f2");
+
+            btnrzcont.Clear();
+            smrzcont.Focus();
         }
 
         private void btnGXRZ_Click(object sender, RoutedEventArgs e)
