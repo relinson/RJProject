@@ -35,7 +35,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
     public partial class JXSmrz : Page
     {
         public GxrzViewModel SmrzViewModelInstance { get; set; }
-
+        int m_QueryType = 0;   //查询类型 0:扫码， 1：后四位手工
         List<JXInvoiceInfo> invoiceList = new List<JXInvoiceInfo>();
         List<JXInvoiceInfo> m_invoiceList = new List<JXInvoiceInfo>();
         List<JXInvoiceInfo> pageList = new List<JXInvoiceInfo>();
@@ -106,6 +106,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 }
             });
 
+            smrzcont.Focus();
             //GetInvoiceStatusTask();
         }
 
@@ -113,7 +114,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
         {
             string strtmp = ((TextBox)sender).Text;
             int index = 0, count = 0;
-            if (strtmp.Length >= 35 && strtmp.EndsWith("，")|| strtmp.EndsWith(","))
+            if (strtmp.Length >= 40 && strtmp.EndsWith("，") || strtmp.EndsWith(","))
             {
                 while ((index = strtmp.IndexOf('，', index)) != -1)
                 {
@@ -132,21 +133,29 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                 }
                 if (count >= 7)
                 {
-                    //                     string[] sArray = strtmp.Split('，');
-                    //                     SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
-                    //                     SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
-
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
+                        m_QueryType = 0;
                         btnQuery_Click(null, null);
                     }));
                 }
             }
         }
+        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //                btnrzcont.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    m_QueryType = 1;
+                    btnQuery_Click(null, null);
+                }));
+            }
+        }
 
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {
-            btnrzcont.Focus();
             if (string.IsNullOrEmpty(SmrzViewModelInstance.Skssq))
             {
                 MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.SkssqNotLoaded, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
@@ -185,26 +194,33 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                             MessageBoxEx.Show(JXManager.JXManagerInstance, PRO_ReceiptsInvMgr.Resources.Message.QueryDateError, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
                             return;
                         }*/
-            string strtmp = smrzcont.Text.ToString();
-            if (strtmp.Length < 40)
+            if (m_QueryType == 0) //扫码查询
             {
-                return;
-            }
+                string strtmp = smrzcont.Text.ToString();
+                if (strtmp.Length < 40)
+                {
+                    return;
+                }
 
-            string[] sArray;
-            int index = strtmp.IndexOf(',', 0);
-            if (index >= 0)
-            {
-                sArray = strtmp.Split(',');
+                string[] sArray;
+                int index = strtmp.IndexOf(',', 0);
+                if (index >= 0)
+                {
+                    sArray = strtmp.Split(',');
+                }
+                else
+                {
+                    sArray = strtmp.Split('，');
+                }
+
+                SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
+                SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
             }
-            else
+            else  //后四位enter查询
             {
-                sArray = strtmp.Split('，');
+                SmrzViewModelInstance.QueryModel.InvoiceNo = btnrzcont.Text.ToString();
             }
             
-            SmrzViewModelInstance.QueryModel.InvoiceCode = sArray[2];
-            SmrzViewModelInstance.QueryModel.InvoiceNo = sArray[3];
-            smrzcont.Clear();//自动清除数据
 
             SmrzViewModelInstance.IsAllChecked = false;
             imgTip.Visibility = Visibility.Collapsed;
@@ -322,8 +338,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             SmrzViewModelInstance.TotalAmount = totalAmount.ToString("f2");
             SmrzViewModelInstance.TotalSE = totalSe.ToString("f2");
 
-            btnrzcont.Clear();
-            smrzcont.Focus();
+            smrzcont.Clear();//自动清除数据
         }
 
         private void btnGXRZ_Click(object sender, RoutedEventArgs e)
