@@ -339,6 +339,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             SmrzViewModelInstance.TotalSE = totalSe.ToString("f2");
 
             smrzcont.Clear();//自动清除数据
+            btnrzcont.Clear();
         }
 
         private void btnGXRZ_Click(object sender, RoutedEventArgs e)
