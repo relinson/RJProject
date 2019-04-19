@@ -119,7 +119,7 @@ namespace PRO_ReceiptsInvMgr.Client
 
                 loginPanel.Visibility = Visibility.Hidden;
                 registPanel.Visibility = Visibility.Visible;
-                this.Height = 530;
+                this.Height = 450;
             }
         }
 
@@ -213,8 +213,10 @@ namespace PRO_ReceiptsInvMgr.Client
 
             if (string.IsNullOrEmpty(tbRegCode.Text))
             {
-                MessageBoxEx.Show(this, PRO_ReceiptsInvMgr.Resources.Message.PormptInputZcm, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
-                return;
+                //如果注册码为空，则上传试用注册码  20190419
+                tbRegCode.Text = "RJTECH2019"; 
+//                 MessageBoxEx.Show(this, PRO_ReceiptsInvMgr.Resources.Message.PormptInputZcm, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
+//                 return;
             }
 
             string errorMsg = string.Empty;

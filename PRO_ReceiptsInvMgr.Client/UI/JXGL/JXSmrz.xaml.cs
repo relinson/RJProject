@@ -218,6 +218,10 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
             }
             else  //后四位enter查询
             {
+                if (btnrzcont.Text.Length < 8)
+                {
+                    return;
+                }
                 SmrzViewModelInstance.QueryModel.InvoiceNo = btnrzcont.Text.ToString();
             }
             

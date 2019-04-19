@@ -74,7 +74,7 @@
             <Menu Padding="0" Margin="0,0" HorizontalAlignment="Right" Background="Transparent"  Width="Auto" Height="30"   Style="{StaticResource DefaultMenu}" >
                 <MenuItem Header=""   Icon="&#xe604;" Width="auto" Background="#5592f8" Style="{StaticResource DefaultMenuItem}" >
                     <MenuItem  Header="修改密码" Name="menuModifyPwd" FontSize="13" Icon="&#xe657;"    Style="{StaticResource DefaultMenuItem}"  Click="menuModifyPwd_Click"/>
-                    <MenuItem  Header="修改注册码" Name="menuModifyZcm" FontSize="13" Icon="&#xe657;"    Style="{StaticResource DefaultMenuItem}" Click="menuModifyZcm_Click"/>
+                    <MenuItem  Header="输入注册码" Name="menuModifyZcm" FontSize="13" Icon="&#xe657;"    Style="{StaticResource DefaultMenuItem}" Click="menuModifyZcm_Click"/>
 
                 </MenuItem>
                 <MenuItem Name="menuClose" Header="" Icon="&#xe60A;"  xly:ControlAttachProperty.FIconSize="14"  Margin="0,1" Width="auto"  Style="{StaticResource DefaultMenuItem}" Click="menuClose_Click" ></MenuItem>
@@ -106,7 +106,7 @@
                 <TextBox  Name="tbRegNsrsbh" IsReadOnly="True" Width="340" FontSize="14" Foreground="#333" Height="35"   xly:ControlAttachProperty.Watermark="纳税人识别号" Margin="0,5,0,5" Style="{StaticResource TaxTextBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"></TextBox>
                 <TextBox  Name="tbRegNsrmc" IsReadOnly="True" Width="340" FontSize="14" Foreground="#333" Height="35"   xly:ControlAttachProperty.Watermark="纳税人名称" Margin="0,5" Style="{StaticResource TaxTextBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"></TextBox>
                 <ComboBox Name="cbxArea" Width="340" MaxDropDownHeight="200" FontSize="14"  Height="35" Foreground="#333" IsEditable="False" TabIndex="0" xly:ControlAttachProperty.Watermark="请选择地区" Margin="0,5,0,5" Background="#fff" Style="{StaticResource TypeCombobox}" xly:ControlAttachProperty.CornerRadius="16"  ></ComboBox>
-                <TextBox  Name="tbRegCode" Width="340" FontSize="14" Foreground="#333" Height="35"   xly:ControlAttachProperty.Watermark="请输入注册码" Margin="0,5" Style="{StaticResource RegCodeTextBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"></TextBox>
+                <TextBox  Name="tbRegCode" Visibility="Collapsed" Width="340" FontSize="14" Foreground="#333" Height="35"   xly:ControlAttachProperty.Watermark="试用用户无需输入注册码" Margin="0,5" Style="{StaticResource RegCodeTextBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"></TextBox>
                 <PasswordBox Name="pwd" Width="340" MaxLength="8" FontSize="14" Foreground="#333" Height="35" Margin="0,5,0,5"   xly:ControlAttachProperty.Watermark="请设定不超过8位的登录密码" Tag="请设定不超过8位的登录密码" Style="{StaticResource PwdPasswordBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"   PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
                 <PasswordBox Name="confirmPwd" MaxLength="8" Width="340" FontSize="14" Foreground="#333" Height="35" Margin="0,5,0,20"   xly:ControlAttachProperty.Watermark="请再次输入登录密码" Tag="请再次输入登录密码" Style="{StaticResource PwdPasswordBox}" xly:ControlAttachProperty.CornerRadius="16" Background="#fff"  PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
                 <Button Name="btnRegister" Click="btnRegister_Click"  Width="340" Height="45" Style="{StaticResource JXLoginBtn}" Content="注   册"></Button>
