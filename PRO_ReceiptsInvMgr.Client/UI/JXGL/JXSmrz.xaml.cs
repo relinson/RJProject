@@ -348,7 +348,7 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
 
         private void btnGXRZ_Click(object sender, RoutedEventArgs e)
         {
-            var checkedList = invoiceList.Where(x => x.IsChecked).ToList();
+            var checkedList = m_invoiceList.Where(x => x.IsChecked).ToList();
             int count = checkedList.Count;
             if (count == 0)
             {
@@ -396,7 +396,34 @@ namespace PRO_ReceiptsInvMgr.Client.UI.JXGL
                         {
                             MessageBoxEx.Show(JXManager.JXManagerInstance, msg, PRO_ReceiptsInvMgr.Resources.Message.Tips, MessageBoxExButtons.OK, MessageBoxExIcon.Error);
                         }
-                        btnQuery_Click(null, null);
+
+                        if (msg.IndexOf("成功") != -1)
+                        {
+                            m_invoiceList.RemoveAll(x => x.IsChecked);
+                        }
+
+                        //显示
+                        SmrzViewModelInstance.InvoiceList = new ObservableCollection<JXInvoiceInfo>(m_invoiceList);
+//                        SmrzViewModelInstance.YqTipCounts = SmrzViewModelInstance.InvoiceList.Count(x => x.YQTXBZ);
+
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            splYqRemain.Visibility = SmrzViewModelInstance.YqTipCounts > 0 ? Visibility.Visible : Visibility.Collapsed;
+                            pcPage.TotalCount = m_invoiceList.Count;
+                            gifLoading.Visibility = Visibility.Collapsed;
+
+                            if (m_invoiceList.Count > 0)
+                            {
+                                pcPage.Visibility = Visibility.Visible;
+                                pcPage_DataSourcePageSize(null, null);
+                            }
+                            else
+                            {
+                                imgTip.Visibility = Visibility.Visible;
+                            }
+                            CalcTotalChecked();
+                        }));
+
                     }));
                 });
             };
