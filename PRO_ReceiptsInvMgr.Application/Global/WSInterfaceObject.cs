@@ -176,6 +176,8 @@ namespace PRO_ReceiptsInvMgr.Application.Global
         public string areaId { get; set; }
 
         public string appKey { get; set; }
+
+        public string expiredTime { get; set; }
     }
 
     #region 常用应用下载查询

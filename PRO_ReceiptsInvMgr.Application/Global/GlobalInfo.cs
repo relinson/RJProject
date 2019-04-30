@@ -126,5 +126,10 @@ namespace PRO_ReceiptsInvMgr.Application.Global
         /// 注册码
         /// </summary>
         public static string AppId { get; set; }
+
+        /// <summary>
+        /// 到期时间
+        /// </summary>
+        public static string ExpiredTime { get; set; }
     }
 }

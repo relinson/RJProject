@@ -419,22 +419,22 @@
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
- <!--                    <StackPanel Orientation="Horizontal" Grid.Column="0"> -->
-                    <!--                         <Image Margin="35,0,0,0" Width="15" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/fp-icon-link.png" Stretch="None"></Image> -->
-                    <!--                         <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="14" Foreground="#9ba3b0" Text="相关链接"></TextBlock> -->
-                    <!--  -->
-                    <!--                     </StackPanel>-->
+<!--                     <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <Image Margin="35,0,0,0" Width="15" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/fp-icon-link.png" Stretch="None"></Image>
+                        <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="14" Foreground="#9ba3b0" Text="相关链接"></TextBlock>
+                    </StackPanel>
 
- <!--                    <StackPanel Orientation="Horizontal" Grid.Column="1" Width="360" HorizontalAlignment="Right"> -->
-                    <!--  -->
-                    <!--                         <Image Margin="250,0,0,0"   Width="18" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/link-logo01.png" Stretch="None"></Image> -->
-                    <!--                         <TextBlock VerticalAlignment="Center"    Margin="5,0" Text=" "> -->
-                    <!--                         <Hyperlink  TextDecorations="{x:Null}"   NavigateUri="http://www.chinatax.gov.cn/" Click="Hyperlink_Click"> -->
-                    <!--                             <TextBlock FontFamily="Micosoft YaHei" FontSize="12"  Foreground="#9ba3b0" Text="国税网站"></TextBlock> -->
-                    <!--                         </Hyperlink>     -->
-                    <!--                     </TextBlock> -->
- 
-                    <!--                     </StackPanel>-->
+                     <StackPanel Orientation="Horizontal" Grid.Column="1" Width="360" HorizontalAlignment="Right"> -->
+<!--                         <Image Margin="250,0,0,0"   Width="18" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/link-logo01.png" Stretch="None"></Image> -->
+<!--                         <TextBlock VerticalAlignment="Center"    Margin="5,0" Text=" "> -->
+<!--                         <Hyperlink  TextDecorations="{x:Null}"   NavigateUri="http://www.chinatax.gov.cn/" Click="Hyperlink_Click"> -->
+<!--                             <TextBlock FontFamily="Micosoft YaHei" FontSize="12"  Foreground="#9ba3b0" Text="国税网站"></TextBlock> -->
+<!--                         </Hyperlink>     -->
+<!--                     </TextBlock> -->
+<!--                     </StackPanel>-->
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                        <Label x:Name="expiredTime" Grid.Column="0" Foreground="#9ba3b0"  HorizontalAlignment="Center" VerticalAlignment="Center"  Content="到期时间："/>
+                    </StackPanel>
                 </Grid>
             </Grid>
 
@@ -445,7 +445,7 @@
                     <!--<ColumnDefinition Width="300"/>-->
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" x:Name="lblVersion" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#cee2ff" Content="" Width="150" />
-                <!--<Label Grid.Column="0" Foreground="#cee2ff"  HorizontalAlignment="Center" VerticalAlignment="Center"  Content="版权所有：CopyRight ©2019 北京融久新创科技有限公司"/> -->
+                <Label Grid.Column="0" x:Name="lblPhone" Foreground="#cee2ff"  HorizontalAlignment="Right" VerticalAlignment="Center"  Content=""/>
                 <StackPanel Width="260" HorizontalAlignment="Right" Orientation="Horizontal"  Grid.Column="0">
                     <Image Margin="2,0,0,0" Width="15" Source="/PRO_ReceiptsInvMgr.Client;component/Resources/image/fp-icon-tel.png" Stretch="None" Visibility="Hidden"></Image>
                     <TextBlock  Width="50" Margin="5,0" Foreground="#ffffff" FontSize="14" VerticalAlignment="Center" Text="                  "></TextBlock>

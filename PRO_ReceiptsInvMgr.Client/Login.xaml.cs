@@ -336,6 +336,7 @@ namespace PRO_ReceiptsInvMgr.Client
                 GlobalInfo.NSRSBH = nsrsbh;
                 GlobalInfo.Dqdm = retObj.areaId;
                 GlobalInfo.AppId = retObj.appKey;
+                GlobalInfo.ExpiredTime = retObj.expiredTime;
                 GlobalInfo.JxPwd = taxKey.Password;
 
                 ConfigObject configObject = new ConfigObject();

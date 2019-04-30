@@ -218,8 +218,14 @@ namespace PRO_ReceiptsInvMgr.Client
 
                 DownLoadManual();
 
+                this.expiredTime.Content = "到期时间：" + GlobalInfo.ExpiredTime;
+                if (File.Exists(@"rjcf.df"))
+                {
+                    StreamReader reader = new StreamReader("rjcf.df", Encoding.UTF8);
+                    this.lblPhone.Content = reader.ReadToEnd().ToString();
+                    reader.Close();
+                }
                 this.lblVersion.Content = string.Format(PRO_ReceiptsInvMgr.Resources.Common.ClientVersion, System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
                 LoadNotifyIcon();
 
                 CheckUpdate();
