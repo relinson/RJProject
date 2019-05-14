@@ -183,9 +183,10 @@ Section Uninstall
 SectionEnd
 
 #-- 根据 NSIS 脚本编辑规则，所有 Function 区段必须放置在 Section 区段之后编写，以避免安装程序出现未可预知的问题。--#
-Function .onInit
-	SetOutPath "$INSTDIR"
-	File /oname=rjcf.df rjcf.df 
+Function .onInstSuccess
+;	Delete "$INSTDIR\rjcf.df"
+;	SetOutPath "$INSTDIR"
+;	File /oname=rjcf.df rjcf.df 
 FunctionEnd
 
 Function un.onInit
